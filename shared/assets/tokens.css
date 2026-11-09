@@ -1,4 +1,4 @@
-﻿/* Токены фирменного стиля: сняты с magnit.ru (жёлтый #feb622, коралл #ff5858,
+/* Токены фирменного стиля: сняты с magnit.ru (жёлтый #feb622, коралл #ff5858,
    графит #3b3a3a, тёмно-зелёный #3b5803) и шрифтов MagnitBox / MagnitSans. */
 
 :root {
@@ -15,7 +15,6 @@
   --m-card: #ffffff;
   --m-radius: 18px;
   --m-radius-sm: 10px;
-  --m-shadow: 0 10px 30px rgba(59, 58, 58, 0.08);
   --m-font: "MagnitBox", "MagnitSans", "Inter", "Segoe UI", system-ui, sans-serif;
   --m-mono: "JetBrains Mono", "Cascadia Code", Consolas, monospace;
 }
@@ -102,7 +101,7 @@ h1 { font-size: 30px; line-height: 1.15; margin: 14px 0 8px; letter-spacing: -0.
 
 .card {
   background: var(--m-card); border: 1px solid var(--m-line);
-  border-radius: var(--m-radius); padding: 20px 22px; box-shadow: var(--m-shadow);
+  border-radius: var(--m-radius); padding: 20px 22px;
 }
 .card h2 { font-size: 16px; margin: 0 0 4px; letter-spacing: -0.01em; }
 .card .hint { color: var(--m-ink-soft); font-size: 12.5px; margin: 0 0 16px; }
@@ -124,9 +123,9 @@ button, .btn {
   font-family: var(--m-font); font-size: 14px; font-weight: 700;
   background: var(--m-yellow); color: var(--m-ink);
   border: none; border-radius: 12px; padding: 11px 20px; cursor: pointer;
-  transition: transform 0.08s ease, box-shadow 0.15s ease;
+  transition: transform 0.08s ease;
 }
-button:hover { transform: translateY(-1px); box-shadow: 0 6px 16px rgba(254, 182, 34, 0.45); }
+button:hover { transform: translateY(-1px); }
 button.ghost { background: #fff; border: 1px solid var(--m-line); }
 button:disabled { opacity: 0.5; cursor: default; transform: none; }
 
@@ -164,7 +163,7 @@ footer { margin-top: 34px; padding-top: 18px; border-top: 1px solid var(--m-line
   display: grid; grid-template-columns: 1.05fr 1fr; gap: 20px; align-items: center;
   background: linear-gradient(120deg, #fff8e8 0%, #fffdf7 55%, #f2f9e6 100%);
   border: 1px solid var(--m-line); border-radius: var(--m-radius);
-  padding: 20px 22px; margin-bottom: 18px; box-shadow: var(--m-shadow);
+  padding: 20px 22px; margin-bottom: 18px;
 }
 .hero h2 { margin: 0 0 6px; font-size: 17px; letter-spacing: -0.01em; }
 .hero p { margin: 0; color: var(--m-ink-soft); font-size: 13px; max-width: 520px; }
@@ -199,10 +198,9 @@ footer { margin-top: 34px; padding-top: 18px; border-top: 1px solid var(--m-line
 .appbar .icon-btn {
   display: inline-flex; align-items: center; gap: 7px;
   background: #fff; border: 1px solid var(--m-line); color: var(--m-ink);
-  border-radius: 10px; padding: 7px 11px; font-size: 12.5px; font-weight: 700;
-  box-shadow: none; transform: none;
+  border-radius: 10px; padding: 7px 11px; font-size: 12.5px; font-weight: 700; transform: none;
 }
-.appbar .icon-btn:hover { background: var(--m-cream); box-shadow: none; transform: none; }
+.appbar .icon-btn:hover { background: var(--m-cream); transform: none; }
 .appbar .icon-btn.accent { background: var(--m-yellow); border-color: var(--m-yellow); }
 .appbar .icon-btn.danger:hover { background: #ffe3e3; color: #a51d1d; }
 .appbar .icon-btn .icon { width: 15px; height: 15px; }
@@ -213,8 +211,8 @@ footer { margin-top: 34px; padding-top: 18px; border-top: 1px solid var(--m-line
   display: grid; place-items: center; padding: 24px;
 }
 .modal {
-  background: #fff; border-radius: var(--m-radius); padding: 22px 24px;
-  max-width: 460px; width: 100%; box-shadow: 0 24px 60px rgba(59, 58, 58, 0.25);
+  background: #fff; border: 1px solid var(--m-line); border-radius: var(--m-radius); padding: 22px 24px;
+  max-width: 460px; width: 100%;
 }
 .modal h3 { margin: 0 0 8px; font-size: 17px; }
 .modal p { margin: 0 0 8px; color: var(--m-ink-soft); font-size: 13.5px; }
