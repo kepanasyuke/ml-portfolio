@@ -124,6 +124,18 @@ h1 { font-size: 30px; line-height: 1.15; margin: 14px 0 8px; letter-spacing: -0.
 .card-foot { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
 .card-foot a { font-weight: 700; font-size: 12.5px; }
 .card-foot a:hover { text-decoration: none; color: var(--m-coral); }
+.repo-card {
+  display: flex; justify-content: space-between; align-items: center;
+  gap: 20px; flex-wrap: wrap;
+}
+.repo-card h2 { margin-bottom: 2px; }
+.repo-link {
+  font-weight: 700; font-size: 13px; color: var(--m-ink);
+  text-decoration: none; border-bottom: 2px solid var(--m-yellow);
+  padding-bottom: 1px;
+}
+.repo-link:hover { color: var(--m-coral); border-bottom-color: var(--m-coral); }
+
 
 .kpi .value { font-size: 27px; font-weight: 800; letter-spacing: -0.02em; }
 .kpi .unit { font-size: 13px; color: var(--m-ink-soft); font-weight: 600; margin-left: 4px; }
