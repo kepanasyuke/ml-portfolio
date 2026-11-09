@@ -23,7 +23,8 @@
 
 body {
   margin: 0;
-  background: var(--m-bg);
+  background-color: var(--m-bg);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='22' height='22'%3E%3Ccircle cx='1.4' cy='1.4' r='1' fill='%23eae2d2'/%3E%3C/svg%3E");
   color: var(--m-ink);
   font-family: var(--m-font);
   font-size: 15px;
@@ -100,11 +101,32 @@ h1 { font-size: 30px; line-height: 1.15; margin: 14px 0 8px; letter-spacing: -0.
 .grid.four { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 
 .card {
-  background: var(--m-card); border: 1px solid var(--m-line);
+  position: relative; background: var(--m-card); border: 1px solid var(--m-line);
   border-radius: var(--m-radius); padding: 20px 22px;
+  transition: border-color 0.12s ease, transform 0.12s ease, background-color 0.12s ease;
 }
+.card:hover { border-color: #ddd2bd; }
 .card h2 { font-size: 16px; margin: 0 0 4px; letter-spacing: -0.01em; }
 .card .hint { color: var(--m-ink-soft); font-size: 12.5px; margin: 0 0 16px; }
+
+.card.project { border-left: 4px solid var(--m-yellow); padding-left: 18px; }
+.card.project.good { border-left-color: var(--m-green); }
+.card.project.alert { border-left-color: var(--m-coral); }
+.card.project:hover { transform: translateY(-2px); background: #fffdf8; }
+.card-head { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 2px; }
+.card-glyph {
+  width: 38px; height: 38px; flex: none; border-radius: 11px;
+  display: grid; place-items: center;
+  background: var(--m-cream); color: var(--m-ink);
+}
+.card.project.good .card-glyph { background: var(--m-mint); color: var(--m-green); }
+.card.project.alert .card-glyph { background: #ffe3e3; color: #a51d1d; }
+.card-glyph .icon { width: 20px; height: 20px; }
+.card.project .label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--m-ink-soft); }
+.card.project .value { font-size: 23px; font-weight: 800; letter-spacing: -0.02em; line-height: 1.2; }
+.card-foot { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+.card-foot a { font-weight: 700; font-size: 12.5px; }
+.card-foot a:hover { text-decoration: none; color: var(--m-coral); }
 
 .kpi .value { font-size: 27px; font-weight: 800; letter-spacing: -0.02em; }
 .kpi .unit { font-size: 13px; color: var(--m-ink-soft); font-weight: 600; margin-left: 4px; }
@@ -113,11 +135,14 @@ h1 { font-size: 30px; line-height: 1.15; margin: 14px 0 8px; letter-spacing: -0.
 .kpi.good { border-top: 4px solid var(--m-green); }
 .kpi.alert { border-top: 4px solid var(--m-coral); }
 
-table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
-th, td { text-align: left; padding: 9px 8px; border-bottom: 1px solid var(--m-line); }
-th { font-size: 11.5px; text-transform: uppercase; letter-spacing: 0.07em; color: var(--m-ink-soft); }
-tbody tr:hover { background: #fffaf0; }
-td.num, th.num { text-align: right; font-family: var(--m-mono); font-size: 12.5px; }
+table { width: 100%; border-collapse: separate; border-spacing: 0 5px; font-size: 13.5px; }
+th { text-align: left; padding: 0 10px 6px; font-size: 11.5px; text-transform: uppercase; letter-spacing: 0.07em; color: var(--m-ink-soft); }
+td { text-align: left; padding: 9px 10px; background: #fff; border-top: 1px solid var(--m-line); border-bottom: 1px solid var(--m-line); }
+tbody td:first-child { border-left: 1px solid var(--m-line); border-radius: 10px 0 0 10px; font-weight: 600; }
+tbody td:last-child { border-right: 1px solid var(--m-line); border-radius: 0 10px 10px 0; }
+tbody tr:nth-child(even) td { background: #fffcf3; }
+tbody tr:hover td { background: #fff4dd; }
+td.num, th.num { font-family: var(--m-mono); font-size: 12.5px; text-align: right; }
 
 button, .btn {
   font-family: var(--m-font); font-size: 14px; font-weight: 700;
