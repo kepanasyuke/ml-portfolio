@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% block head %}<script src="{{ root }}/assets/app.js" defer></script>{% endblock %}
+
+{% block content %}
+<div class="grid four" style="margin-bottom:18px">
+  <div class="card kpi accent">
+    <div class="label">Эффект на пользователя</div>
+    <div class="value" id="kpi-diff">—</div>
+  </div>
+  <div class="card kpi">
+    <div class="label">p-value (Welch)</div>
+    <div class="value" id="kpi-p">—</div>
+  </div>
+  <div class="card kpi good">
+    <div class="label">p-value после CUPED</div>
+    <div class="value" id="kpi-cuped">—</div>
+  </div>
+  <div class="card kpi alert">
+    <div class="label">Срезано дисперсии</div>
+    <div class="value" id="kpi-reduction">—</div>
+  </div>
+</div>
+
+<div class="grid two">
+  <div class="card">
+    <h2>Дизайн теста до запуска</h2>
+    <p class="hint">Сколько пользователей нужно в каждой группе, чтобы увидеть эффект
+      заданного размера с мощностью 80% и ошибкой I рода 5%.</p>
+    <label for="mde">Минимальный детектируемый эффект, % от среднего</label>
+    <input id="mde" type="number" value="4" step="0.5" min="0.5" max="50">
+    <label for="traffic">Трафик, пользователей в день</label>
+    <input id="traffic" type="number" value="1200" step="100" min="100">
+    <button id="calc" style="margin-top:14px">Пересчитать дизайн</button>
+    <table style="margin-top:16px">
+      <tbody id="design"></tbody>
+    </table>
+  </div>
+
+  <div class="card">
+    <h2>Результат эксперимента</h2>
+    <p class="hint">Один и тот же тест: наивная оценка против CUPED и последовательного p-value.</p>
+    <table>
+      <thead>
+        <tr><th>Метод</th><th class="num">Эффект, ₽</th><th class="num">Ст. ошибка</th><th class="num">p-value</th></tr>
+      </thead>
+      <tbody id="methods"></tbody>
+    </table>
+    <p class="muted" id="note"></p>
+  </div>
+</div>
+
+<div class="card" style="margin-top:18px">
+  <h2>Почему подглядывание ломает p-value</h2>
+  <p class="muted">
+    Если проверять тест каждый день обычным z-тестом, вероятность ложноположительного результата
+    растёт с каждым взглядом. В отчёте рядом с наивным p-value стоит always-valid p-value по mSPRT:
+    он держит ошибку I рода на всём горизонте и позволяет останавливать тест досрочно.
+    CUPED при этом не меняет эффект, а срезает дисперсию за счёт предпериодного GMV —
+    то есть даёт тот же ответ на меньшем трафике.
+  </p>
+</div>
+{% endblock %}

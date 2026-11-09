@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block head %}<script src="{{ root }}/assets/app.js" defer></script>{% endblock %}
+
+{% block content %}
+<div class="grid four" style="margin-bottom:18px">
+  <div class="card kpi accent">
+    <div class="label">CLV всей базы</div>
+    <div class="value" id="kpi-total">—</div>
+  </div>
+  <div class="card kpi">
+    <div class="label">Средний CLV</div>
+    <div class="value" id="kpi-avg">—</div>
+  </div>
+  <div class="card kpi alert">
+    <div class="label">CLV под риском</div>
+    <div class="value" id="kpi-risk">—</div>
+  </div>
+  <div class="card kpi good">
+    <div class="label">Среднее удержание</div>
+    <div class="value" id="kpi-retention">—</div>
+  </div>
+</div>
+
+<div class="grid two">
+  <div class="card">
+    <h2>Ценность по сегментам</h2>
+    <p class="hint">Где сосредоточены деньги базы и насколько высок риск оттока.</p>
+    <div id="segment-chart" class="chart"></div>
+  </div>
+  <div class="card">
+    <h2>RFM-сегменты</h2>
+    <p class="hint">Правила: свежесть × частота × деньги по пятибалльной шкале.</p>
+    <table>
+      <thead>
+        <tr><th>Сегмент</th><th class="num">Клиенты</th><th class="num">Средний CLV</th>
+        <th class="num">Отток</th><th class="num">Удержание</th></tr>
+      </thead>
+      <tbody id="segments"></tbody>
+    </table>
+  </div>
+</div>
+
+<div class="card" style="margin-top:18px">
+  <h2>Самые ценные клиенты</h2>
+  <p class="hint">CLV на 12 месяцев: частота × чек × маржа × вероятность удержания.</p>
+  <table>
+    <thead>
+      <tr><th>user_id</th><th>Сегмент</th><th class="num">Заказов/30 дн.</th>
+      <th class="num">Дней с заказа</th><th class="num">Удержание</th><th class="num">CLV, ₽</th></tr>
+    </thead>
+    <tbody id="customers"></tbody>
+  </table>
+</div>
+{% endblock %}

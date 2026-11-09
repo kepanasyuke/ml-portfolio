@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% block head %}<script src="{{ root }}/assets/app.js" defer></script>{% endblock %}
+
+{% block content %}
+<div class="grid four" style="margin-bottom:18px">
+  <div class="card kpi accent">
+    <div class="label">AUUC · two-model</div>
+    <div class="value" id="kpi-auuc">—</div>
+  </div>
+  <div class="card kpi good">
+    <div class="label">AUUC · transformed</div>
+    <div class="value" id="kpi-auuc2">—</div>
+  </div>
+  <div class="card kpi">
+    <div class="label">Uplift@10%</div>
+    <div class="value" id="kpi-uplift">—</div>
+  </div>
+  <div class="card kpi alert">
+    <div class="label">Holdout, пользователей</div>
+    <div class="value" id="kpi-holdout">—</div>
+  </div>
+</div>
+
+<div class="grid two">
+  <div class="card">
+    <h2>Кривая Qini на отложенной выборке</h2>
+    <p class="hint">Чем выше кривая над нулевой линией, тем точнее модель отделяет отзывчивых
+      клиентов от тех, кто заказал бы и без скидки.</p>
+    <div id="qini-chart" class="chart"></div>
+    <div id="qini-legend" class="legend"></div>
+  </div>
+  <div class="card">
+    <h2>Uplift по сегментам клиентов</h2>
+    <p class="hint">Средний CATE на пуле скоринга: где промокод реально меняет решение о заказе.</p>
+    <div id="segments-chart" class="chart"></div>
+  </div>
+</div>
+
+<div class="card" style="margin-top:18px">
+  <h2>Кому отправлять промокод первыми</h2>
+  <p class="hint">Сортировка по ожидаемой инкрементальной марже:
+    uplift × (чек × маржа − доставка − номинал).</p>
+  <table>
+    <thead>
+      <tr>
+        <th>user_id</th><th>Сегмент</th><th>Город</th>
+        <th class="num">Промокод, ₽</th><th class="num">Uplift</th><th class="num">Ожид. маржа, ₽</th>
+      </tr>
+    </thead>
+    <tbody id="reco"></tbody>
+  </table>
+</div>
+
+<div class="card" style="margin-top:18px">
+  <h2>Как это связано с бизнесом</h2>
+  <p class="muted">
+    Uplift-модель отвечает на вопрос «даст ли промокод дополнительный заказ», а не «кто вероятнее
+    закажет». Поэтому в скоринг уходит не вероятность конверсии, а её прирост, и уже он умножается
+    на маржинальность заказа. Следующий проект — <a href="{{ root.rsplit('/', 1)[0] }}/promo-optimizer/">
+    Promo Optimizer</a> — забирает эти скоринги и раскладывает бюджет под ограничения CPO и маржи.
+  </p>
+</div>
+{% endblock %}

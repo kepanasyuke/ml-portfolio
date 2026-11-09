@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+{% block head %}<script src="{{ root }}/assets/app.js" defer></script>{% endblock %}
+
+{% block content %}
+<div class="grid two">
+  <div class="card">
+    <h2>Ограничения кампании</h2>
+    <p class="hint">Оптимизатор ищет набор «пользователь × номинал», максимизируя
+      инкрементальную CM2 при соблюдении бюджета и потолка CPO.</p>
+    <div class="row">
+      <div>
+        <label for="budget">Бюджет, ₽</label>
+        <input id="budget" type="number" value="90000" step="5000" min="1000">
+      </div>
+      <div>
+        <label for="cpo">Потолок CPO, ₽</label>
+        <input id="cpo" type="number" value="220" step="10" min="10">
+      </div>
+      <div style="display:flex;align-items:flex-end">
+        <button id="run" style="width:100%">Пересчитать план</button>
+      </div>
+    </div>
+    <p class="muted" id="limits"></p>
+  </div>
+
+  <div class="grid two">
+    <div class="card kpi accent">
+      <div class="label">Инкрементальная CM2</div>
+      <div class="value" id="kpi-cm2">—</div>
+    </div>
+    <div class="card kpi good">
+      <div class="label">CPO плана</div>
+      <div class="value" id="kpi-cpo">—</div>
+    </div>
+    <div class="card kpi">
+      <div class="label">Охват</div>
+      <div class="value" id="kpi-users">—</div>
+    </div>
+    <div class="card kpi alert">
+      <div class="label">ROI на промо-рубль</div>
+      <div class="value" id="kpi-roi">—</div>
+    </div>
+  </div>
+</div>
+
+<div class="card" style="margin-top:18px">
+  <h2>Оптимизированный план против «всем по 300 ₽»</h2>
+  <p class="hint">Одинаковый бюджет, разная отдача: персонализация номинала и получателя.</p>
+  <div id="compare-chart" class="chart"></div>
+  <div id="compare-legend" class="legend"></div>
+  <table style="margin-top:14px">
+    <thead>
+      <tr>
+        <th>Сценарий</th><th class="num">Пользователи</th><th class="num">Затраты, ₽</th>
+        <th class="num">Инд. заказы</th><th class="num">Инд. GMV, ₽</th>
+        <th class="num">Инд. CM2, ₽</th><th class="num">CPO, ₽</th><th class="num">ROI</th>
+      </tr>
+    </thead>
+    <tbody id="compare"></tbody>
+  </table>
+</div>
+
+<div class="grid two" style="margin-top:18px">
+  <div class="card">
+    <h2>Распределение по номиналам</h2>
+    <p class="hint">Сколько пользователей и денег уходит на каждый номинал промокода.</p>
+    <table>
+      <thead><tr><th class="num">Номинал, ₽</th><th class="num">Пользователи</th><th class="num">Затраты, ₽</th><th class="num">CM2, ₽</th></tr></thead>
+      <tbody id="mix"></tbody>
+    </table>
+  </div>
+  <div class="card">
+    <h2>Топ строк плана</h2>
+    <p class="hint">Кому промокод даёт максимум ожидаемой маржи.</p>
+    <table>
+      <thead><tr><th>user_id</th><th>Сегмент</th><th class="num">Промокод</th><th class="num">Uplift</th><th class="num">CM2, ₽</th></tr></thead>
+      <tbody id="top"></tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}

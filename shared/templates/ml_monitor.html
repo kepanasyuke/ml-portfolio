@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% block head %}<script src="{{ root }}/assets/app.js" defer></script>{% endblock %}
+
+{% block content %}
+<div class="grid four" style="margin-bottom:18px">
+  <div class="card kpi accent">
+    <div class="label">Максимальный PSI</div>
+    <div class="value" id="kpi-max">—</div>
+  </div>
+  <div class="card kpi alert">
+    <div class="label">Признаков в алерте</div>
+    <div class="value" id="kpi-alerts">—</div>
+  </div>
+  <div class="card kpi">
+    <div class="label">PSI скорингов</div>
+    <div class="value" id="kpi-scores">—</div>
+  </div>
+  <div class="card kpi good">
+    <div class="label">Батчи: эталон / текущий</div>
+    <div class="value" id="kpi-batches">—</div>
+  </div>
+</div>
+
+<div class="card">
+  <h2>Сдвиг текущего батча</h2>
+  <p class="hint">Имитация изменения спроса: множитель к GMV и чеку, сдвиг давности заказа.
+    Двигайте ползунок и смотрите, какие признаки первыми выходят из-под контроля.</p>
+  <div class="row">
+    <div>
+      <label for="factor">Множитель спроса</label>
+      <input id="factor" type="range" min="0.6" max="2" step="0.1" value="1.6">
+    </div>
+    <div style="display:flex;align-items:flex-end"><button id="recalc" style="width:100%">Пересчитать дрейф</button></div>
+    <div style="display:flex;align-items:center"><span class="muted" id="factor-value">×1.6</span></div>
+  </div>
+</div>
+
+<div class="grid two" style="margin-top:18px">
+  <div class="card">
+    <h2>PSI по признакам</h2>
+    <p class="hint">Зелёный &lt; 0.10, жёлтый &lt; 0.25, красный — признак требует вмешательства.</p>
+    <div id="psi-chart" class="chart"></div>
+  </div>
+  <div class="card">
+    <h2>Алерты</h2>
+    <p class="hint">Признаки с PSI выше 0.10: повод проверить контракт данных и переобучить модель.</p>
+    <table>
+      <thead><tr><th>Признак</th><th class="num">PSI</th><th class="num">KS</th><th>Статус</th></tr></thead>
+      <tbody id="alerts"></tbody>
+    </table>
+  </div>
+</div>
+
+<div class="card" style="margin-top:18px">
+  <h2>Полная таблица мониторинга</h2>
+  <table>
+    <thead>
+      <tr><th>Признак</th><th class="num">PSI</th><th class="num">KS</th>
+      <th class="num">Среднее эталон</th><th class="num">Среднее текущий</th><th>Статус</th></tr>
+    </thead>
+    <tbody id="features"></tbody>
+  </table>
+</div>
+{% endblock %}
