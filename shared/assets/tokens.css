@@ -138,11 +138,12 @@ h1 { font-size: 30px; line-height: 1.15; margin: 14px 0 8px; letter-spacing: -0.
 .kpi.accent .label::before { background: var(--m-yellow); }
 .kpi.good .label::before { background: var(--m-green); }
 .kpi.alert .label::before { background: var(--m-coral); }
-.card.kpi.accent { position: relative; overflow: hidden; padding-right: 66px; }
-.card.kpi.accent::after {
-  content: ""; position: absolute; right: 12px; bottom: 8px; width: 46px; height: 62px;
-  pointer-events: none; background: url("img/staff-magnit-1.svg") center / contain no-repeat;
+footer { position: relative; padding-right: 120px; }
+.page-mascot {
+  position: absolute; right: 4px; bottom: 18px; width: 92px; height: 126px;
+  pointer-events: none; background: url("img/staff-magnit-1.svg") bottom right / contain no-repeat;
 }
+@media (max-width: 760px) { .page-mascot { width: 64px; height: 88px; } }
 
 
 
