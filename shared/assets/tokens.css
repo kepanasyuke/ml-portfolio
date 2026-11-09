@@ -138,12 +138,18 @@ h1 { font-size: 30px; line-height: 1.15; margin: 14px 0 8px; letter-spacing: -0.
 .kpi.accent .label::before { background: var(--m-yellow); }
 .kpi.good .label::before { background: var(--m-green); }
 .kpi.alert .label::before { background: var(--m-coral); }
-footer { position: relative; padding-right: 120px; }
+footer {
+  position: relative; min-height: 118px; padding-right: 132px;
+  display: flex; flex-direction: column; justify-content: center;
+}
 .page-mascot {
-  position: absolute; right: 4px; bottom: 18px; width: 92px; height: 126px;
+  position: absolute; right: 6px; bottom: 0; width: 80px; height: 112px;
   pointer-events: none; background: url("img/staff-magnit-1.svg") bottom right / contain no-repeat;
 }
-@media (max-width: 760px) { .page-mascot { width: 64px; height: 88px; } }
+@media (max-width: 760px) {
+  footer { min-height: 92px; padding-right: 84px; }
+  .page-mascot { width: 58px; height: 82px; }
+}
 
 
 
