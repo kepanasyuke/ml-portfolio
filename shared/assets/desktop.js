@@ -44,7 +44,7 @@
     var bar = document.createElement("div");
     bar.className = "appbar";
     bar.innerHTML =
-      '<div class="brand"><div class="brand-mark"><svg class="icon"><use href="#i-logo"></use></svg></div>' +
+      '<div class="brand"><div class="brand-mark"><img src="static/img/magnit-store.svg" alt="Магнит"></div>' +
       '<div><div class="brand-title">ML-кабинет</div><div class="brand-sub">окно приложения</div></div></div>' +
       '<div class="actions"></div>';
 

@@ -50,10 +50,9 @@ a:hover { text-decoration: underline; }
 .brand { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; }
 .brand-mark {
   width: 38px; height: 38px; border-radius: 12px;
-  background: var(--m-yellow); color: var(--m-ink);
-  display: grid; place-items: center;
+  display: grid; place-items: center; overflow: hidden;
 }
-.brand-mark .icon { width: 30px; height: 30px; }
+.brand-mark img { width: 100%; height: 100%; display: block; }
 .brand-title { font-weight: 800; font-size: 17px; letter-spacing: -0.01em; }
 .brand-sub { color: rgba(255, 255, 255, 0.55); font-size: 12px; margin: 0 0 22px; }
 
@@ -139,6 +138,13 @@ h1 { font-size: 30px; line-height: 1.15; margin: 14px 0 8px; letter-spacing: -0.
 .kpi.accent .label::before { background: var(--m-yellow); }
 .kpi.good .label::before { background: var(--m-green); }
 .kpi.alert .label::before { background: var(--m-coral); }
+.card.kpi { position: relative; overflow: hidden; padding-right: 52px; }
+.card.kpi::after {
+  content: ""; position: absolute; right: 10px; bottom: 8px; width: 38px; height: 52px;
+  pointer-events: none; background: url("img/staff-seller.svg") center / contain no-repeat;
+}
+.card.kpi:nth-child(even)::after { background-image: url("img/staff-courier.svg"); }
+
 
 table { width: 100%; border-collapse: separate; border-spacing: 0 5px; font-size: 13.5px; }
 th { text-align: left; padding: 0 10px 6px; font-size: 11.5px; text-transform: uppercase; letter-spacing: 0.07em; color: var(--m-ink-soft); }
