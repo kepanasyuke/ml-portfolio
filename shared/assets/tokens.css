@@ -227,3 +227,41 @@ footer { margin-top: 34px; padding-top: 18px; border-top: 1px solid var(--m-line
   .hero-cats { justify-content: flex-start; }
   .appbar .actions .label { display: none; }
 }
+
+/* Продуктовая витрина кабинета: главный блок как полка магазина. */
+.showcase {
+  display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 22px;
+  background: linear-gradient(135deg, #fff6e2 0%, #fffdf7 60%, #eef7e0 100%);
+  border: 1px solid var(--m-line); border-radius: var(--m-radius);
+  padding: 22px 24px; margin-bottom: 18px;
+}
+.showcase-head h2 { margin: 8px 0 6px; font-size: 21px; letter-spacing: -0.02em; }
+.showcase-head p { margin: 0; color: var(--m-ink-soft); font-size: 13px; max-width: 420px; }
+.showcase-metrics { display: flex; gap: 18px; margin-top: 16px; flex-wrap: wrap; }
+.showcase-metrics div { display: flex; flex-direction: column; }
+.showcase-metrics strong { font-size: 18px; letter-spacing: -0.01em; }
+.showcase-metrics span { font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--m-ink-soft); }
+
+.products { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+.product {
+  position: relative; display: flex; flex-direction: column;
+  background: #fff; border: 1px solid var(--m-line); border-radius: 14px;
+  padding: 12px 12px 10px; text-align: left;
+}
+.product img { width: 56px; height: 56px; object-fit: contain; align-self: center; margin-bottom: 8px; }
+.product h3 { margin: 0; font-size: 12.5px; line-height: 1.3; letter-spacing: -0.01em; }
+.product .weight { margin: 2px 0 8px; font-size: 11px; color: var(--m-ink-soft); }
+.product-price { display: flex; align-items: baseline; gap: 6px; margin-top: auto; }
+.product-price s { font-size: 11px; color: var(--m-ink-soft); }
+.product-price strong { font-size: 15px; }
+.product-tag {
+  position: absolute; top: 8px; left: 8px;
+  background: var(--m-coral); color: #fff; border-radius: 8px;
+  padding: 2px 7px; font-size: 10.5px; font-weight: 800; letter-spacing: 0.02em;
+}
+.product-tag.soft { background: var(--m-mint); color: var(--m-green); }
+
+@media (max-width: 1000px) {
+  .showcase { grid-template-columns: 1fr; }
+  .products { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}

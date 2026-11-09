@@ -78,4 +78,12 @@ def test_cabinet_has_icons_and_brand_mark():
 def test_cabinet_shows_store_categories():
     page = client.get("/").text
     assert "/static/img/cat-milk.png" in page
-    assert "cat-strip" in page
+    assert 'class="showcase"' in page
+
+
+def test_cabinet_shows_product_cards():
+    page = client.get("/").text
+    assert 'class="products"' in page
+    assert page.count('class="product"') == 6
+    assert 'class="product-tag"' in page
+    assert "89 ₽" in page
