@@ -25,8 +25,15 @@
     return max * 1.12;
   }
 
+  function compact(value) {
+    var units = [[1e9, " млрд"], [1e6, " млн"], [1e3, " тыс"]];
+    var hit = units.filter(function (pair) { return value >= pair[0]; })[0];
+    var digits = hit ? 1 : 2;
+    return hit ? (value / hit[0]).toFixed(digits) + hit[1] : value.toFixed(digits);
+  }
+
   function axes(ctx, values, labels) {
-    var pad = { l: 46, r: 12, t: 14, b: 30 };
+    var pad = { l: 58, r: 12, t: 14, b: 30 };
     var h = ctx.height - pad.t - pad.b;
     var w = ctx.width - pad.l - pad.r;
     var top = niceMax(values);
@@ -35,7 +42,7 @@
       var y = pad.t + h * (1 - share);
       ctx.root.appendChild(svg("line", { x1: pad.l, x2: pad.l + w, y1: y, y2: y, stroke: "#ece7dd", "stroke-width": 1 }));
       var label = svg("text", { x: 6, y: y + 4, fill: "#717171", "font-size": 10 });
-      label.textContent = (top * share).toFixed(2);
+      label.textContent = compact(top * share);
       ctx.root.appendChild(label);
     });
     labels.forEach(function (item, index) {
