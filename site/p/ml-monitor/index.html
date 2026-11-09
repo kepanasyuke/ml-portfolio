@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ML Monitor — портфолио ML-инженера Магнит доставки</title>
+  <link rel="icon" type="image/svg+xml" href="/ml-portfolio/p/ml-monitor/static/img/magnit-store.svg">
+  <link rel="stylesheet" href="/ml-portfolio/p/ml-monitor/static/tokens.css">
+  <script src="/ml-portfolio/p/ml-monitor/static/charts.js" defer></script>
+  <script src="/ml-portfolio/p/ml-monitor/static/desktop.js" defer></script>
+  <script src="/ml-portfolio/p/ml-monitor/assets/app.js" defer></script>
+</head>
+<body>
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+  <symbol id="i-cabinet" viewBox="0 0 24 24">
+    <rect x="3" y="3" width="7.5" height="7.5" rx="1.6"/>
+    <rect x="13.5" y="3" width="7.5" height="7.5" rx="1.6"/>
+    <rect x="3" y="13.5" width="7.5" height="7.5" rx="1.6"/>
+    <rect x="13.5" y="13.5" width="7.5" height="7.5" rx="1.6"/>
+  </symbol>
+  <symbol id="i-uplift" viewBox="0 0 24 24">
+    <path d="M3 17l5-5 4 3 8-9"/>
+    <path d="M15 6h5v5"/>
+  </symbol>
+  <symbol id="i-promo" viewBox="0 0 24 24">
+    <path d="M20.6 13.4 12 22l-9-9V4h9l8.6 8.6a1.4 1.4 0 0 1 0 1.8z"/>
+    <circle cx="7.5" cy="7.5" r="1.5"/>
+  </symbol>
+  <symbol id="i-ab" viewBox="0 0 24 24">
+    <path d="M3 6h4l5 6 5-6h4"/>
+    <path d="M12 12v7"/>
+    <circle cx="12" cy="12" r="1.4"/>
+  </symbol>
+  <symbol id="i-pipeline" viewBox="0 0 24 24">
+    <circle cx="5" cy="6" r="2"/>
+    <circle cx="5" cy="18" r="2"/>
+    <circle cx="19" cy="12" r="2"/>
+    <path d="M7 6.8h3.4L15.5 11"/>
+    <path d="M7 17.2h3.4l5.1-4.2"/>
+  </symbol>
+  <symbol id="i-clv" viewBox="0 0 24 24">
+    <circle cx="9" cy="8" r="3"/>
+    <path d="M3 19c0-3 2.7-5 6-5s6 2 6 5"/>
+    <path d="M17.5 9.5l1.3 2.2 2.2.6-1.6 1.6.3 2.4-2.2-1.2-2.2 1.2.3-2.4-1.6-1.6 2.2-.6z"/>
+  </symbol>
+  <symbol id="i-monitor" viewBox="0 0 24 24">
+    <path d="M2 12h4l2-5 4 10 3-7 2 2h5"/>
+  </symbol>
+  <symbol id="i-sql" viewBox="0 0 24 24">
+    <ellipse cx="12" cy="6" rx="7" ry="3"/>
+    <path d="M5 6v6c0 1.7 3.1 3 7 3s7-1.3 7-3V6"/>
+    <path d="M5 12v6c0 1.7 3.1 3 7 3s7-1.3 7-3v-6"/>
+  </symbol>
+  <symbol id="i-docs" viewBox="0 0 24 24">
+    <path d="M5 4h9l5 5v11a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1z"/>
+    <path d="M14 4v5h5"/>
+    <path d="M8 13h8M8 17h5"/>
+  </symbol>
+  <symbol id="i-health" viewBox="0 0 24 24">
+    <path d="M3 12h3l2-4 3 8 3-6 2 2h5"/>
+  </symbol>
+  <symbol id="i-refresh" viewBox="0 0 24 24">
+    <path d="M20 12a8 8 0 1 1-3-6.2"/>
+    <path d="M20 4v5h-5"/>
+  </symbol>
+  <symbol id="i-expand" viewBox="0 0 24 24">
+    <path d="M4 9V4h5"/>
+    <path d="M20 15v5h-5"/>
+    <path d="M15 4h5v5"/>
+    <path d="M9 20H4v-5"/>
+  </symbol>
+  <symbol id="i-external" viewBox="0 0 24 24">
+    <path d="M14 4h6v6"/>
+    <path d="M20 4l-8 8"/>
+    <path d="M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/>
+  </symbol>
+  <symbol id="i-info" viewBox="0 0 24 24">
+    <circle cx="12" cy="12" r="9"/>
+    <path d="M12 11v5"/>
+    <path d="M12 7.6h.01"/>
+  </symbol>
+  <symbol id="i-close" viewBox="0 0 24 24">
+    <path d="M6 6l12 12M18 6L6 18"/>
+  </symbol>
+</svg>
+<div class="shell">
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="brand-mark"><img src="/ml-portfolio/p/ml-monitor/static/img/magnit-store.svg" alt="Магнит"></div>
+      <div>
+        <div class="brand-title">Магнит доставка</div>
+        <div class="brand-sub">ML-кабинет · uplift и промо</div>
+      </div>
+    </div>
+    
+    <div class="nav-label">Кабинет</div>
+    <nav class="nav">
+      <a href="/ml-portfolio/">
+        <svg class="icon" aria-hidden="true"><use href="#i-cabinet"></use></svg>Сводка по компании
+      </a>
+    </nav>
+    
+    <div class="nav-label">Проекты</div>
+    <nav class="nav">
+      
+      <a href="/ml-portfolio/p/uplift-engine/" >
+        <svg class="icon" aria-hidden="true"><use href="#i-uplift"></use></svg>Uplift Engine
+      </a>
+      
+      <a href="/ml-portfolio/p/promo-optimizer/" >
+        <svg class="icon" aria-hidden="true"><use href="#i-promo"></use></svg>Promo Optimizer
+      </a>
+      
+      <a href="/ml-portfolio/p/ab-lab/" >
+        <svg class="icon" aria-hidden="true"><use href="#i-ab"></use></svg>A/B Lab
+      </a>
+      
+      <a href="/ml-portfolio/p/ml-pipeline/" >
+        <svg class="icon" aria-hidden="true"><use href="#i-pipeline"></use></svg>ML Pipeline
+      </a>
+      
+      <a href="/ml-portfolio/p/churn-clv/" >
+        <svg class="icon" aria-hidden="true"><use href="#i-clv"></use></svg>Churn &amp; CLV
+      </a>
+      
+      <a href="/ml-portfolio/p/ml-monitor/" class="active">
+        <svg class="icon" aria-hidden="true"><use href="#i-monitor"></use></svg>ML Monitor
+      </a>
+      
+      <a href="/ml-portfolio/p/sql-lab/" >
+        <svg class="icon" aria-hidden="true"><use href="#i-sql"></use></svg>SQL Metrics Lab
+      </a>
+      
+    </nav>
+    <div class="nav-label">Документация</div>
+    <nav class="nav">
+      <a href="/ml-portfolio/p/ml-monitor/api/docs">
+        <svg class="icon" aria-hidden="true"><use href="#i-docs"></use></svg>OpenAPI
+      </a>
+      <a href="/ml-portfolio/p/ml-monitor/api/health">
+        <svg class="icon" aria-hidden="true"><use href="#i-health"></use></svg>Health-check
+      </a>
+    </nav>
+  </aside>
+
+  <main class="main">
+    <span class="eyebrow">Проект 06 · Мониторинг</span>
+    <h1>ML Monitor</h1>
+    <p class="lead">Дрейф данных и скорингов: PSI и KS на каждом признаке, алерты по порогам и контроль распределения предсказаний uplift-модели.</p>
+    <div class="chips">
+      
+      <span class="chip"><strong>Метрики</strong> PSI, KS-статистика</span>
+      
+      <span class="chip"><strong>Пороги</strong> 0.10 / 0.25</span>
+      
+      <span class="chip"><strong>Стек</strong> Python, scipy, FastAPI</span>
+      
+    </div>
+    
+<div class="grid four" style="margin-bottom:18px">
+  <div class="card kpi accent">
+    <div class="label">Максимальный PSI</div>
+    <div class="value" id="kpi-max">—</div>
+  </div>
+  <div class="card kpi alert">
+    <div class="label">Признаков в алерте</div>
+    <div class="value" id="kpi-alerts">—</div>
+  </div>
+  <div class="card kpi">
+    <div class="label">PSI скорингов</div>
+    <div class="value" id="kpi-scores">—</div>
+  </div>
+  <div class="card kpi good">
+    <div class="label">Батчи: эталон / текущий</div>
+    <div class="value" id="kpi-batches">—</div>
+  </div>
+</div>
+
+<div class="card">
+  <h2>Сдвиг текущего батча</h2>
+  <p class="hint">Имитация изменения спроса: множитель к GMV и чеку, сдвиг давности заказа.
+    Двигайте ползунок и смотрите, какие признаки первыми выходят из-под контроля.</p>
+  <div class="row">
+    <div>
+      <label for="factor">Множитель спроса</label>
+      <input id="factor" type="range" min="0.6" max="2" step="0.1" value="1.6">
+    </div>
+    <div style="display:flex;align-items:flex-end"><button id="recalc" style="width:100%">Пересчитать дрейф</button></div>
+    <div style="display:flex;align-items:center"><span class="muted" id="factor-value">×1.6</span></div>
+  </div>
+</div>
+
+<div class="grid two" style="margin-top:18px">
+  <div class="card">
+    <h2>PSI по признакам</h2>
+    <p class="hint">Зелёный &lt; 0.10, жёлтый &lt; 0.25, красный — признак требует вмешательства.</p>
+    <div id="psi-chart" class="chart"></div>
+  </div>
+  <div class="card">
+    <h2>Алерты</h2>
+    <p class="hint">Признаки с PSI выше 0.10: повод проверить контракт данных и переобучить модель.</p>
+    <table>
+      <thead><tr><th>Признак</th><th class="num">PSI</th><th class="num">KS</th><th>Статус</th></tr></thead>
+      <tbody id="alerts"></tbody>
+    </table>
+  </div>
+</div>
+
+<div class="card" style="margin-top:18px">
+  <h2>Полная таблица мониторинга</h2>
+  <table>
+    <thead>
+      <tr><th>Признак</th><th class="num">PSI</th><th class="num">KS</th>
+      <th class="num">Среднее эталон</th><th class="num">Среднее текущий</th><th>Статус</th></tr>
+    </thead>
+    <tbody id="features"></tbody>
+  </table>
+</div>
+
+    <footer>
+      Синтетические данные Магнит доставки · стиль интерфейса снят с magnit.ru ·
+      правила кода: один выход из функции, 1–2 оператора в теле, без while/break/continue
+      <div class="page-mascot" aria-hidden="true"></div>
+    </footer>
+  </main>
+</div>
+
+</body>
+</html>
