@@ -2,27 +2,62 @@
 {% block head %}<script src="{{ root }}/assets/app.js" defer></script>{% endblock %}
 
 {% block content %}
-<div class="hero">
-  <div>
-    <h2>Промо-контур доставки на одном экране</h2>
-    <p>Uplift-скоринг решает, кому нужна скидка, оптимизатор раскладывает бюджет под CPO и маржу,
-      а витрина заказов показывает, что из этого получилось в рублях GMV и CM2.</p>
-    <div class="cat-strip">
-      <figure><img src="{{ root }}/static/img/cat-milk.png" alt="Молочное"><figcaption>Молочное</figcaption></figure>
-      <figure><img src="{{ root }}/static/img/cat-cheese.png" alt="Сыры"><figcaption>Сыры</figcaption></figure>
-      <figure><img src="{{ root }}/static/img/cat-coffee.png" alt="Кофе и чай"><figcaption>Кофе и чай</figcaption></figure>
-      <figure><img src="{{ root }}/static/img/cat-sweets.png" alt="Сладости"><figcaption>Сладости</figcaption></figure>
-      <figure><img src="{{ root }}/static/img/cat-bakery.png" alt="Выпечка"><figcaption>Выпечка</figcaption></figure>
+<section class="showcase">
+  <div class="showcase-head">
+    <span class="badge warn">Промо недели</span>
+    <h2>−20% на первый заказ доставки</h2>
+    <p>Uplift-модель решает, кому показать баннер, оптимизатор считает CPO акции,
+      а витрина показывает, что она принесла в рублях GMV и CM2.</p>
+    <div class="showcase-metrics">
+      <div><strong>14,5 млн ₽</strong><span>GMV витрины</span></div>
+      <div><strong>6 000</strong><span>заказов</span></div>
+      <div><strong>×1,56</strong><span>ROI промо</span></div>
     </div>
   </div>
-  <div class="hero-cats">
-    <figure><img src="{{ root }}/static/img/promo.png" alt="Промо"><figcaption>Промо</figcaption></figure>
-    <figure><img src="{{ root }}/static/img/cat-milk.png" alt="Молочное"><figcaption>Молочное</figcaption></figure>
-    <figure><img src="{{ root }}/static/img/cat-cheese.png" alt="Сыры"><figcaption>Сыры</figcaption></figure>
-    <figure><img src="{{ root }}/static/img/cat-coffee.png" alt="Кофе"><figcaption>Кофе</figcaption></figure>
-    <figure><img src="{{ root }}/static/img/cat-bakery.png" alt="Выпечка"><figcaption>Выпечка</figcaption></figure>
+  <div class="products">
+    <article class="product">
+      <span class="product-tag">−20%</span>
+      <img src="{{ root }}/static/img/cat-milk.png" alt="Молоко">
+      <h3>Молоко 3,2%</h3>
+      <p class="weight">1 л, пастеризованное</p>
+      <div class="product-price"><s>112 ₽</s><strong>89 ₽</strong></div>
+    </article>
+    <article class="product">
+      <span class="product-tag">−15%</span>
+      <img src="{{ root }}/static/img/cat-cheese.png" alt="Сыр">
+      <h3>Сыр «Российский»</h3>
+      <p class="weight">200 г, 50%</p>
+      <div class="product-price"><s>258 ₽</s><strong>219 ₽</strong></div>
+    </article>
+    <article class="product">
+      <span class="product-tag soft">Хит</span>
+      <img src="{{ root }}/static/img/cat-coffee.png" alt="Кофе">
+      <h3>Кофе зерновой</h3>
+      <p class="weight">250 г, средняя обжарка</p>
+      <div class="product-price"><strong>549 ₽</strong></div>
+    </article>
+    <article class="product">
+      <img src="{{ root }}/static/img/cat-bakery.png" alt="Выпечка">
+      <h3>Круассан с маслом</h3>
+      <p class="weight">85 г, свежая выпечка</p>
+      <div class="product-price"><strong>79 ₽</strong></div>
+    </article>
+    <article class="product">
+      <span class="product-tag">−10%</span>
+      <img src="{{ root }}/static/img/cat-sweets.png" alt="Сладости">
+      <h3>Конфеты ассорти</h3>
+      <p class="weight">350 г, набор</p>
+      <div class="product-price"><s>389 ₽</s><strong>349 ₽</strong></div>
+    </article>
+    <article class="product">
+      <span class="product-tag soft">Новинка</span>
+      <img src="{{ root }}/static/img/cat-oil.png" alt="Масло">
+      <h3>Масло оливковое</h3>
+      <p class="weight">500 мл, extra virgin</p>
+      <div class="product-price"><strong>159 ₽</strong></div>
+    </article>
   </div>
-</div>
+</section>
 
 <div class="grid four" style="margin-bottom:18px">
   <div class="card kpi accent">
