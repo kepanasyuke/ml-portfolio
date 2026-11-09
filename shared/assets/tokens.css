@@ -161,7 +161,7 @@ footer { margin-top: 34px; padding-top: 18px; border-top: 1px solid var(--m-line
 
 .hero {
   display: grid; grid-template-columns: 1.05fr 1fr; gap: 20px; align-items: center;
-  background: linear-gradient(120deg, #fff8e8 0%, #fffdf7 55%, #f2f9e6 100%);
+  background: #fff8ea;
   border: 1px solid var(--m-line); border-radius: var(--m-radius);
   padding: 20px 22px; margin-bottom: 18px;
 }
@@ -187,9 +187,8 @@ footer { margin-top: 34px; padding-top: 18px; border-top: 1px solid var(--m-line
   position: sticky; top: 0; z-index: 20;
   display: flex; align-items: center; gap: 12px;
   padding: 10px 18px;
-  background: rgba(255, 253, 247, 0.92);
+  background: var(--m-bg);
   border-bottom: 1px solid var(--m-line);
-  backdrop-filter: blur(8px);
 }
 .appbar .brand { margin: 0; gap: 9px; }
 .appbar .brand-title { font-size: 14px; }
@@ -231,7 +230,7 @@ footer { margin-top: 34px; padding-top: 18px; border-top: 1px solid var(--m-line
 /* Продуктовая витрина кабинета: главный блок как полка магазина. */
 .showcase {
   display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 22px;
-  background: linear-gradient(135deg, #fff6e2 0%, #fffdf7 60%, #eef7e0 100%);
+  background: #fff8ea;
   border: 1px solid var(--m-line); border-radius: var(--m-radius);
   padding: 22px 24px; margin-bottom: 18px;
 }
