@@ -86,7 +86,7 @@
     groups.forEach(function (group, gi) {
       var baseX = box.pad.l + (box.w / Math.max(groups.length, 1)) * gi + (box.w / Math.max(groups.length, 1) - slot) / 2;
       group.values.forEach(function (value, si) {
-        var h = box.h * Math.min(value / box.top, 1);
+        var h = Math.max(box.h * Math.min(value / box.top, 1), 0);
         ctx.root.appendChild(svg("rect", {
           x: baseX + barW * si + 1,
           y: box.pad.t + box.h - h,

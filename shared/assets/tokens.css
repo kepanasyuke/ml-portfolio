@@ -131,9 +131,9 @@ h1 { font-size: 30px; line-height: 1.15; margin: 14px 0 8px; letter-spacing: -0.
 .kpi .value { font-size: 27px; font-weight: 800; letter-spacing: -0.02em; }
 .kpi .unit { font-size: 13px; color: var(--m-ink-soft); font-weight: 600; margin-left: 4px; }
 .kpi .label { color: var(--m-ink-soft); font-size: 12.5px; text-transform: uppercase; letter-spacing: 0.08em; }
-.kpi.accent { border-top: 4px solid var(--m-yellow); }
-.kpi.good { border-top: 4px solid var(--m-green); }
-.kpi.alert { border-top: 4px solid var(--m-coral); }
+.kpi.accent { border-left: 4px solid var(--m-yellow); padding-left: 18px; }
+.kpi.good { border-left: 4px solid var(--m-green); padding-left: 18px; }
+.kpi.alert { border-left: 4px solid var(--m-coral); padding-left: 18px; }
 
 table { width: 100%; border-collapse: separate; border-spacing: 0 5px; font-size: 13.5px; }
 th { text-align: left; padding: 0 10px 6px; font-size: 11.5px; text-transform: uppercase; letter-spacing: 0.07em; color: var(--m-ink-soft); }
