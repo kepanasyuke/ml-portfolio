@@ -1,0 +1,13 @@
+fastapi==0.162.0
+uvicorn==0.54.0
+jinja2
+numpy==2.5.4
+pandas==3.1.1
+scikit-learn==1.9.1
+scipy
+httpx
+pytest==9.2.0
+ruff
+pywebview
+pillow
+playwright

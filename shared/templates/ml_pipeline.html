@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block head %}<script src="{{ root }}/assets/app.js" defer></script>{% endblock %}
+
+{% block content %}
+<div class="card">
+  <h2>Оркестратор стадий</h2>
+  <p class="hint">Кнопка запускает пайплайн. Повторный запуск без изменений отдаёт стадии из кэша:
+    хеш входов и параметров совпал — пересчёта нет.</p>
+  <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+    <button id="run">Запустить пайплайн</button>
+    <label style="display:flex;gap:8px;align-items:center;margin:0;font-weight:600">
+      <input id="force" type="checkbox" style="width:auto"> пересчитать с нуля
+    </label>
+    <span class="muted" id="bucket"></span>
+  </div>
+  <div class="grid four" id="stages" style="margin-top:20px"></div>
+</div>
+
+<div class="grid two" style="margin-top:18px">
+  <div class="card">
+    <h2>Метрики последнего evaluate</h2>
+    <table>
+      <tbody id="metrics"></tbody>
+    </table>
+  </div>
+  <div class="card">
+    <h2>Объекты локального S3</h2>
+    <p class="hint">Каталог .local_s3 имитирует бакет: те же ключи, что были бы в продовом хранилище.</p>
+    <table>
+      <thead><tr><th>Ключ</th><th class="num">Размер</th></tr></thead>
+      <tbody id="artifacts"></tbody>
+    </table>
+  </div>
+</div>
+
+<div class="card" style="margin-top:18px">
+  <h2>Почему хеши, а не «перезапустить всё»</h2>
+  <p class="muted">
+    Каждая стадия описывается sha256 по содержимому входных файлов и параметрам. Изменился датасет —
+    пересчитываются train и evaluate; поменяли только порог валидации — едут validate и дальше.
+    В проде этот же принцип переносится на DVC и S3: манифест фиксирует, какая версия данных
+    дала какую модель, и позволяет воспроизвести эксперимент месячной давности.
+  </p>
+</div>
+{% endblock %}

@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block head %}<script src="{{ root }}/assets/app.js" defer></script>{% endblock %}
+
+{% block content %}
+<div class="cat-strip" style="margin-bottom:16px">
+  <figure><img src="{{ root }}/static/img/cat-milk.png" alt="Молочное"><figcaption>Молочное</figcaption></figure>
+  <figure><img src="{{ root }}/static/img/cat-cheese.png" alt="Сыры"><figcaption>Сыры</figcaption></figure>
+  <figure><img src="{{ root }}/static/img/cat-coffee.png" alt="Кофе и чай"><figcaption>Кофе и чай</figcaption></figure>
+  <figure><img src="{{ root }}/static/img/cat-sweets.png" alt="Сладости"><figcaption>Сладости</figcaption></figure>
+  <figure><img src="{{ root }}/static/img/cat-bakery.png" alt="Выпечка"><figcaption>Выпечка</figcaption></figure>
+</div>
+
+<div class="grid two">
+  <div class="card">
+    <h2>Готовые запросы</h2>
+    <p class="hint">Клик подставляет SQL в редактор. Диалект — Trino/ClickHouse,
+      исполнение — локальный SQLite через шим.</p>
+    <div id="presets" style="display:flex;flex-direction:column;gap:8px"></div>
+    <h2 style="margin-top:18px">Схема витрины <code>orders</code></h2>
+    <table>
+      <thead><tr><th>Колонка</th><th>Тип</th></tr></thead>
+      <tbody id="schema"></tbody>
+    </table>
+  </div>
+
+  <div class="card">
+    <h2>Редактор запроса</h2>
+    <p class="hint">Разрешены только SELECT/WITH. Результат ограничен 200 строками.</p>
+    <textarea id="sql" rows="10">SELECT city,
+       round(sum(gmv), 2) AS gmv,
+       round(sum(gmv * margin_rate - delivery_cost), 2) AS cm2,
+       round(sum(promo_cost) / nullif(count(*), 0), 2) AS cpo
+FROM orders
+GROUP BY city
+ORDER BY gmv DESC</textarea>
+    <div style="display:flex;gap:10px;align-items:center;margin-top:12px">
+      <button id="run">Выполнить</button>
+      <span class="muted" id="meta"></span>
+    </div>
+  </div>
+</div>
+
+<div class="card" style="margin-top:18px">
+  <h2>Результат</h2>
+  <p class="hint" id="error"></p>
+  <div style="overflow-x:auto">
+    <table>
+      <thead id="head"></thead>
+      <tbody id="body"></tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}

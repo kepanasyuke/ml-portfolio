@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% block head %}<script src="{{ root }}/assets/app.js" defer></script>{% endblock %}
+
+{% block content %}
+<div class="hero">
+  <div>
+    <h2>Промо-контур доставки на одном экране</h2>
+    <p>Uplift-скоринг решает, кому нужна скидка, оптимизатор раскладывает бюджет под CPO и маржу,
+      а витрина заказов показывает, что из этого получилось в рублях GMV и CM2.</p>
+    <div class="cat-strip">
+      <figure><img src="{{ root }}/static/img/cat-milk.png" alt="Молочное"><figcaption>Молочное</figcaption></figure>
+      <figure><img src="{{ root }}/static/img/cat-cheese.png" alt="Сыры"><figcaption>Сыры</figcaption></figure>
+      <figure><img src="{{ root }}/static/img/cat-coffee.png" alt="Кофе и чай"><figcaption>Кофе и чай</figcaption></figure>
+      <figure><img src="{{ root }}/static/img/cat-sweets.png" alt="Сладости"><figcaption>Сладости</figcaption></figure>
+      <figure><img src="{{ root }}/static/img/cat-bakery.png" alt="Выпечка"><figcaption>Выпечка</figcaption></figure>
+    </div>
+  </div>
+  <div class="hero-cats">
+    <figure><img src="{{ root }}/static/img/promo.png" alt="Промо"><figcaption>Промо</figcaption></figure>
+    <figure><img src="{{ root }}/static/img/cat-milk.png" alt="Молочное"><figcaption>Молочное</figcaption></figure>
+    <figure><img src="{{ root }}/static/img/cat-cheese.png" alt="Сыры"><figcaption>Сыры</figcaption></figure>
+    <figure><img src="{{ root }}/static/img/cat-coffee.png" alt="Кофе"><figcaption>Кофе</figcaption></figure>
+    <figure><img src="{{ root }}/static/img/cat-bakery.png" alt="Выпечка"><figcaption>Выпечка</figcaption></figure>
+  </div>
+</div>
+
+<div class="grid four" style="margin-bottom:18px">
+  <div class="card kpi accent">
+    <div class="label">Разделов в контуре</div>
+    <div class="value" id="kpi-sections">—</div>
+  </div>
+  <div class="card kpi alert">
+    <div class="label">Требуют внимания</div>
+    <div class="value" id="kpi-alerts">—</div>
+  </div>
+  <div class="card kpi good">
+    <div class="label">Состояние контура</div>
+    <div class="value" id="kpi-state">—</div>
+  </div>
+  <div class="card kpi">
+    <div class="label">Данные на</div>
+    <div class="value" id="kpi-time" style="font-size:19px">—</div>
+  </div>
+</div>
+
+<div class="card" style="margin-bottom:18px">
+  <div style="display:flex;justify-content:space-between;gap:16px;align-items:center;flex-wrap:wrap">
+    <div>
+      <h2 style="margin-bottom:2px">Сводка по моделям и промо-контуру</h2>
+      <p class="hint" style="margin:0">Данные приходят из API разделов; расчёт кэшируется на процесс.</p>
+    </div>
+    <button id="refresh" class="ghost">Обновить сводку</button>
+  </div>
+</div>
+
+<div class="grid three" id="cards"></div>
+
+<div class="card" style="margin-top:18px">
+  <h2>Как устроен кабинет</h2>
+  <p class="muted">
+    Кабинет — тонкий слой над сервисами: он не хранит данные, а собирает актуальные
+    показатели из моделей uplift, оптимизатора промокодов, A/B-лаборатории, пайплайна,
+    CLV, мониторинга дрейфа и SQL-витрины. Каждая карточка ведёт в свой раздел,
+    где видно методику и можно поменять входные параметры.
+  </p>
+</div>
+{% endblock %}
