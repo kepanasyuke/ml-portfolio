@@ -60,7 +60,7 @@ def test_nav_uses_svg_icons_for_every_section():
     page = client.get("/p/uplift-engine/").text
     icons = ("uplift", "promo", "ab", "pipeline", "clv", "monitor", "sql")
     assert all(f"#i-{icon}" in page for icon in icons)
-    assert "#i-logo" in page
+    assert "magnit-store.svg" in page
     assert "#i-cabinet" in page
 
 
@@ -71,7 +71,7 @@ def test_desktop_bridge_script_is_loaded():
 
 def test_cabinet_has_icons_and_brand_mark():
     page = client.get("/").text
-    assert 'href="#i-logo"' in page
+    assert "img/magnit-store.svg" in page
     assert 'class="brand-mark"' in page
 
 
